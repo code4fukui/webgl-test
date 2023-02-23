@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>webgl-check</title>
+</head><body>
+<div id=outdiv></div>
+<script type="module">
+const ss = [];
+{
+  const canvas = document.createElement("canvas");
+  const gl1 = canvas.getContext("2d");
+  ss.push("Canvas: " + (gl1 ? "supported" : "not supported"))
+}
+{
+  const canvas = document.createElement("canvas");
+  const gl1 = canvas.getContext("webgl");
+  ss.push("WebGL: " + (gl1 ? "supported" : "not supported"))
+}
+{
+  const canvas = document.createElement("canvas");
+  const gl2 = canvas.getContext("webgl2");
+  ss.push("WebGL2: " + (gl2 ? "supported" : "not supported"))
+}
+outdiv.innerHTML = ss.join("<br>");
+</script>
